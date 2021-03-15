@@ -19,7 +19,9 @@ from web3 import Web3, IPCProvider
 
 # web3 = Web3(Web3.HTTPProvider('https://ropsten.infura.io/v3/0fb2f5e906884367b08fdec2e556b4c1'))
 
-ganahce_url = "HTTP://127.0.0.1:7545"
+# web3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/5ff8e077421744bca6c544a5e56756df"))
+
+ganahce_url = "HTTP://127.0.0.1:8545"
 web3 = Web3(Web3.HTTPProvider(ganahce_url))
 
 # print(web3.isConnected())
@@ -310,3 +312,18 @@ def broadcast_signed_ethereum_transaction(body_params):
         res = conn.getresponse()
         data = res.read()
         return data.decode("utf-8")
+
+def estimate_ethereum_transaction_fee(body_params):
+    # if blockchain_validator.estimate_ethereum_transaction_fee(body_params):
+    gaslimit = web3.eth.estimateGas({"from":body_params["from"],"to":body_params["to"],"amount":body_params["amount"]})
+    gasprice = web3.eth.gasPrice
+    return({"gasLimit":gaslimit,"gasPrice":gasprice})
+
+def transfer_ethereum_erc20():#body_params
+    # if blockchain_validator.transfer_ethereum_erc20(body_params):
+    # deploying
+    token = Token.deploy("My Test Token","MTT",2,21000000,{'from':'0x75CBd5e8477fB7b7503E0cD377252b236cd166D9'})
+    # after deploying contract contract transfer erctoken using transfer method
+    token.transfer('0x75CBd5e8477fB7b7503E0cD377252b236cd166D9',10,{'from':'0xecF1210c083ebE92D7Bf4bB145b2322813c4D0ef'})
+    # https://eth-brownie.readthedocs.io/en/stable/quickstart.html
+

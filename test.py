@@ -2,15 +2,15 @@ from tatum.ledger import account, virtual_currency, customer, transaction, subsc
 from tatum.security import key_management_system, address
 from tatum.offchain import account as offchainAccount
 from tatum.offchain import withdrawal, blockchain
-# from tatum.blockchain import bitcoin, ethereum, bitcoin_cash, litecoin, xrp, xlm
+from tatum.blockchain import bitcoin, ethereum, bitcoin_cash, litecoin, xrp, xlm
 import json
 #________________________________LEDGER/ACCOUNT________________________________________________
 
-body_params = {"currency": "BTC", "accountCode":"04_ACC_02", 'customer':{'externalId': '3dss4'}}
-if body_params['currency'] != json.loads(account.create_new_account(body_params))['currency']:
-    print('Currency is not same!')
-else:
-    print(account.create_new_account(body_params))
+# body_params = {"currency": "BTC", "accountCode":"04_ACC_02", 'customer':{'externalId': '3dss4'}}
+# if body_params['currency'] != json.loads(account.create_new_account(body_params))['currency']:
+#     print('Currency is not same!')
+# else:
+#     print(account.create_new_account(body_params))
 
 
 
@@ -509,6 +509,14 @@ else:
 # print(ethereum.invoke_smart_contract_method(body_params))
 
 # print(ethereum.deploy_ethereum_erc20_smart_contract())
+
+body_params = {
+"from": "0x75CBd5e8477fB7b7503E0cD377252b236cd166D9",
+"to": "0xecF1210c083ebE92D7Bf4bB145b2322813c4D0ef",
+"amount": "100"
+}
+print(ethereum.estimate_ethereum_transaction_fee(body_params))
+
 
 #________________________________ BLOCKCHAIN/ BITCOIN CASH ________________________________________________
 # print(bitcoin_cash.generate_bitcoin_cash_wallet())
