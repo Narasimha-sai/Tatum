@@ -381,7 +381,7 @@ def send_ethereum_erc20_from_account_to_account(body_params):
             "currency": {"required": True, "type" : "string"},
             "fee": {"type" : "dict", 'schema': {'gasLimit': {"required": True, "type" : "string"}, 'gasPrice': {"required": True, "type" : "string"}}},
             "amount": {"required": True, "type" : "string"},
-            "fromPrivateKey": {"type" : "string", "minlength": 66, "maxlength": 66},
+            "fromPrivateKey": {"type" : "string", "minlength": 64, "maxlength": 66},
             "signatureId": {"type" : "string", "minlength": 36, "maxlength": 36},
         }
     v.validate(body_params, body_schema)
@@ -578,3 +578,20 @@ def get_ethereum_erc721_token_metadata(path_params):
     }
     v.validate(path_params, path_schema)
     return erros_print(v)
+
+def estimate_ethereum_transaction_fees(body_params):
+    result = True
+    body_schema ={
+        "from":{"required":True,"type":"string","maxlength":42},
+        "to":{"required":True,"type":"string","maxlength":42},
+        "amount":{"required":True,"type":"string"},
+        "data":{"type" : "string","maxlength":50000}     
+    }
+    v.validate(body_params,body_schema)
+    result = result & erros_print(v)
+    if "amount" in body_params.keys():
+        result = result & check_allowed_chars('^[+]?((\d+(\.\d*)?)|(\.\d+))$', 'Amount', body_params['amount'])
+    if "data" in body_params.keys():
+        result = result & check_allowed_chars('^(0x|0h)?[0-9A-F]+$', 'Data', body_params['data'])
+    return result
+

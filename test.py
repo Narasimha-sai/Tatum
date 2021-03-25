@@ -469,15 +469,15 @@ import json
 # query_params = {'pageSize': 10}
 # print(ethereum.get_ethereum_transactions_by_address(path_params, query_params))
 
-# body_params = {
-#     "to": "0x5911774BC465d36135516D60bDAA361bb8587aF1",
-#     "currency": "ETH",
-#     "amount": "0.00001",
-#     "fromPrivateKey": "0xe2879181abb96aea2c03a32cbf859901884d81963cf23a5ef957b7edf8adeba6",
-#     "fee": {"gasLimit":'2000000', "gasPrice":"0.00001"},
-# }
+body_params = {
+    "to": "0xe85D57b034e13CaFe3f5c0B16B7f99D7BbC9f99B",
+    "currency": "ETH",
+    "amount": "0.00001",
+    "fromPrivateKey": "0xc6a093cb060417f4e0e206284c65fb6efb96d6898b5588f6673dafdda796a7f1",
+    "fee": {"gasLimit":'2000000', "gasPrice":"101"},
+}
 
-# print(ethereum.send_ethereum_erc20_from_account_to_account(body_params))
+print(ethereum.send_ethereum_erc20_from_account_to_account(body_params))
 
 
 # body_params = {
@@ -510,14 +510,31 @@ import json
 
 # print(ethereum.deploy_ethereum_erc20_smart_contract())
 
-body_params = {
-"from": "0x75CBd5e8477fB7b7503E0cD377252b236cd166D9",
-"to": "0xecF1210c083ebE92D7Bf4bB145b2322813c4D0ef",
-"amount": "100"
-}
-print(ethereum.estimate_ethereum_transaction_fee(body_params))
+# body_params = {
+# "from": "0x75CBd5e8477fB7b7503E0cD377252b236cd166D9",
+# "to": "0xecF1210c083ebE92D7Bf4bB145b2322813c4D0ef",
+# "amount": "100"
+# }
+# print(ethereum.estimate_ethereum_transaction_fees(body_params))
 
+# body_params = {
+#     "name":"MyToken",
+#     "symbol":"MTT",
+#     "supply":'1000000000000000000',
+#     "digits":18,
+#     "address":"0xfFB865083D75F1492a334efEBA7Af544fC1264f7",
+#     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2"
+# }
+# print(ethereum.deploy_ethereum_erc20_smart_contract(body_params))
 
+# body_params ={
+#     "to": "0xCa64518Fe2fA22CdE41792668a9481dcd3bD1791",
+#     "amount": "100",
+#     "contractAddress": "0x687422eEA2cB73B5d3e242bA5456b782919AFc85",
+#     "digits": 18,
+#     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2",
+# }
+# print(ethereum.transfer_ethereum_erc20(body_params))
 #________________________________ BLOCKCHAIN/ BITCOIN CASH ________________________________________________
 # print(bitcoin_cash.generate_bitcoin_cash_wallet())
 
@@ -687,3 +704,4 @@ print(ethereum.estimate_ethereum_transaction_fee(body_params))
 # path_params = {'token': '2', 'contractAddress': '0xf9a2d14b1150c2b5d76cedb00f49fa1ea52b5a6c'}
 # ethereum.get_ethereum_erc721_token_metadata(path_params)
 # ethereum.get_ethereum_erc721_token_owner(path_params)
+
