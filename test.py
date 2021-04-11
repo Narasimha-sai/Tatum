@@ -469,15 +469,15 @@ import json
 # query_params = {'pageSize': 10}
 # print(ethereum.get_ethereum_transactions_by_address(path_params, query_params))
 
-body_params = {
-    "to": "0xe85D57b034e13CaFe3f5c0B16B7f99D7BbC9f99B",
-    "currency": "ETH",
-    "amount": "0.00001",
-    "fromPrivateKey": "0xc6a093cb060417f4e0e206284c65fb6efb96d6898b5588f6673dafdda796a7f1",
-    "fee": {"gasLimit":'2000000', "gasPrice":"101"},
-}
+# body_params = {
+#     "to": "0xe85D57b034e13CaFe3f5c0B16B7f99D7BbC9f99B",
+#     "currency": "ETH",
+#     "amount": "0.00001",
+#     "fromPrivateKey": "0xc6a093cb060417f4e0e206284c65fb6efb96d6898b5588f6673dafdda796a7f1",
+#     "fee": {"gasLimit":'2000000', "gasPrice":"101"},
+# }
 
-print(ethereum.send_ethereum_erc20_from_account_to_account(body_params))
+# print(ethereum.send_ethereum_erc20_from_account_to_account(body_params))
 
 
 # body_params = {
@@ -518,11 +518,11 @@ print(ethereum.send_ethereum_erc20_from_account_to_account(body_params))
 # print(ethereum.estimate_ethereum_transaction_fees(body_params))
 
 # body_params = {
-#     "name":"MyToken",
-#     "symbol":"MTT",
+#     "name":"SaiToken",
+#     "symbol":"STN",
 #     "supply":'1000000000000000000',
 #     "digits":18,
-#     "address":"0xfFB865083D75F1492a334efEBA7Af544fC1264f7",
+#     "address":"0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c",
 #     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2"
 # }
 # print(ethereum.deploy_ethereum_erc20_smart_contract(body_params))
@@ -530,11 +530,85 @@ print(ethereum.send_ethereum_erc20_from_account_to_account(body_params))
 # body_params ={
 #     "to": "0xCa64518Fe2fA22CdE41792668a9481dcd3bD1791",
 #     "amount": "100",
-#     "contractAddress": "0x687422eEA2cB73B5d3e242bA5456b782919AFc85",
+#     "contractAddress": "0xc1f24Ab5707d2BB8Bc0B7ac5864b27E6DA6DFD1f",
 #     "digits": 18,
 #     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2",
 # }
 # print(ethereum.transfer_ethereum_erc20(body_params))
+
+# body_params = {
+#     'contractAddress':'0x06DAed049dB2dE3ACac8EC935dD2Fb82816F2594',
+#     'methodName':'balanceOf',
+#     'params':{'address':'0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c'},
+#     'methodABI':[{"inputs":[{"internalType":"string","name":"_name","type":"string"},{"internalType":"string","name":"_symbol","type":"string"},{"internalType":"uint256","name":"_decimals","type":"uint256"},{"internalType":"uint256","name":"_totalSupply","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":'false',"inputs":[{"indexed":'false',"internalType":"address","name":"owner","type":"address"},{"indexed":'false',"internalType":"address","name":"spender","type":"address"},{"indexed":'false',"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":'false',"inputs":[{"indexed":'false',"internalType":"address","name":"from","type":"address"},{"indexed":'false',"internalType":"address","name":"to","type":"address"},{"indexed":'false',"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"},{"internalType":"address","name":"_spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_spender","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"}]
+# }
+# print(ethereum.invoke_smart_contract_method(body_params))
+
+# body_params = {
+#     "name":"COLOR",
+#     "symbol":"CLR",
+#     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2"
+# }
+# print(ethereum.deploy_ethereum_erc721_smart_contract(body_params))
+
+# body_params = {
+#     "tokenId":"100",
+#     "to":"0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c",
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79",
+#     "url":"https://my_token_data.com"
+# }
+# print(ethereum.mint_ethereum_erc721(body_params))
+
+# body_params = {
+#     "to":"0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c",
+#     "tokenId":"100",
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79",
+#     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2"
+# }
+# print(ethereum.transfer_ethereum_erc721_token(body_params))
+
+# body_params = {
+#     "to":['0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c'],
+#     "tokenId":['107'], 
+#     "url":["https://my_token_data.com"],
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79",
+#     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2"
+# }
+# print(ethereum.mint_ethereum_erc721_multiple_tokens(body_params))
+
+# body_params = {
+#     "tokenId":'106', 
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79",
+#     "fromPrivateKey": "0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2"
+# }
+# print(ethereum.burn_ethereum_erc721(body_params))
+
+
+# path_params = {
+#     "address":"0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c", 
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79"
+# }
+# print(ethereum.get_ethereum_erc721_account_balance(path_params))
+
+# path_params = {
+#     "address":"0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c",
+#     "index": 1, 
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79"
+# }
+# print(ethereum.get_ethereum_erc721_token(path_params))
+
+# path_params = {
+#     "token":"100",
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79"
+# }
+# print(ethereum.get_ethereum_erc721_token_metadata(path_params))
+
+# path_params = {
+#     "token":"100",
+#     "contractAddress":"0x8D0180d2761E4B7262F25689E3cCe59E39c2ea79"
+# }
+# print(ethereum.get_ethereum_erc721_token_owner(path_params))
+
 #________________________________ BLOCKCHAIN/ BITCOIN CASH ________________________________________________
 # print(bitcoin_cash.generate_bitcoin_cash_wallet())
 
