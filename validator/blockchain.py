@@ -381,7 +381,7 @@ def send_ethereum_erc20_from_account_to_account(body_params):
             "currency": {"required": True, "type" : "string"},
             "fee": {"type" : "dict", 'schema': {'gasLimit': {"required": True, "type" : "string"}, 'gasPrice': {"required": True, "type" : "string"}}},
             "amount": {"required": True, "type" : "string"},
-            "fromPrivateKey": {"type" : "string", "minlength": 64, "maxlength": 66},
+            "fromPrivateKey": {"type" : "string", "minlength": 66, "maxlength": 66},
             "signatureId": {"type" : "string", "minlength": 36, "maxlength": 36},
         }
     v.validate(body_params, body_schema)
@@ -399,7 +399,7 @@ def invoke_smart_contract_method(body_params):
     body_schema = {
             "contractAddress": {"required": True, "type" : "string", "minlength": 42, "maxlength": 42},
             "methodName": {"required": True, "type" : "string", "minlength": 1, "maxlength": 500},
-            "methodABI": {"required": True, "type" : "list"},
+            "methodABI": {"required": True, "type" : "list" , "schema" : {"type" : "dict"}},
             "params": {"required": True, "type" : "dict"},
             "fromPrivateKey": {"type" : "string", "minlength": 66, "maxlength": 66},
             "signatureId": {"type" : "string", "minlength": 36, "maxlength": 36},
@@ -413,6 +413,7 @@ def invoke_smart_contract_method(body_params):
             result = result & check_allowed_chars('^[+]?\d+$', 'gasLimit', body_params['fee']['gasLimit'])
             result = result & check_allowed_chars('^[+]?\d+$', 'gasPrice', body_params['fee']['gasPrice'])
         return result
+
 
 def deploy_ethereum_erc20_smart_contract(body_params):
     result = True
