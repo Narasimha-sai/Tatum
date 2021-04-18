@@ -520,30 +520,30 @@ import json
 # print(ethereum.estimate_ethereum_transaction_fees(body_params))
 
 # body_params = {
-#     "name":"my_erc20",
-#     "symbol":"Symbol",
-#     "supply":'10000000',
+#     "name":"SaiToken",
+#     "symbol":"STN",
+#     "supply":'210000000000',
 #     "digits":18,
-#     "address":"0x6DB0BD42e405CF8d4295be1cC280a6250ff8C128",
-#     "fromPrivateKey": "0x8c99665b1dc6a63e3583097f55478c2302ebcdeaf1311362d46f0cfa4ae1ac6d",
-#     "fee":{"gasLimit":"900000","gasPrice":"20"}
+#     "address":"0xe8a89c132f5Ffe4ddB31188f5D015a73f4dA1c8f",
+#     "fromPrivateKey": "0xea2437712f93d5842aff84121f53af52f1e0a3b3e99574d71bb624cc5ad862e4",
+#     "fee":{"gasLimit":"6000000","gasPrice":"20"}
 # }
 # print(ethereum.deploy_ethereum_erc20_smart_contract(body_params))
 
 # body_params ={
-#     "to": "0x6DB0BD42e405CF8d4295be1cC280a6250ff8C128",
-#     "amount": "100",
-#     "contractAddress": "0xa58e760F8F43fb5d56D3E447DD7D5e5Bdd0d6f34",
+#     "to": "0x5C010bd42496DB0e30650F40947B707865146711",
+#     "amount": "1000",
+#     "contractAddress": "0x0cf9d33775057ff526fa4eb83efe227cce252cee",
 #     "digits": 18,
-#     "fromPrivateKey": "0x8c99665b1dc6a63e3583097f55478c2302ebcdeaf1311362d46f0cfa4ae1ac6d",
-#     "fee":{"gasLimit":"80000","gasPrice":"20"}
+#     "fromPrivateKey": "0xea2437712f93d5842aff84121f53af52f1e0a3b3e99574d71bb624cc5ad862e4",
+#     "fee":{"gasLimit":"2000000","gasPrice":"20"}
 # }
 # print(ethereum.transfer_ethereum_erc20(body_params))
 
 # body_params = {
-#     'contractAddress':'0xB80a0BfD58E8AD521858376e6cB4f7De88246253',
-#     'methodName':'decimals',
-#     'params':{},#'address':'0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c'},
+#     'contractAddress':'0xeA7a7a0f3CfA833fa32EfFF61b062BcB8596fb1B',
+#     'methodName':'balanceOf',
+#     'params':{'address':'0xaE0835EC16922Bd9993EEF5cDa04606D53075c9c'},
 #     'methodABI':[{"inputs":[{"internalType":"string","name":"_name","type":"string"},{"internalType":"string","name":"_symbol","type":"string"},{"internalType":"uint256","name":"_decimals","type":"uint256"},{"internalType":"uint256","name":"_totalSupply","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":'false',"inputs":[{"indexed":'false',"internalType":"address","name":"owner","type":"address"},{"indexed":'false',"internalType":"address","name":"spender","type":"address"},{"indexed":'false',"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":'false',"inputs":[{"indexed":'false',"internalType":"address","name":"from","type":"address"},{"indexed":'false',"internalType":"address","name":"to","type":"address"},{"indexed":'false',"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"},{"internalType":"address","name":"_spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_spender","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"}]
 # }
 # print(ethereum.invoke_smart_contract_method(body_params))
