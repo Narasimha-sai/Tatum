@@ -5,8 +5,9 @@ from tatum.offchain import withdrawal, blockchain
 from tatum.blockchain import bitcoin, ethereum, bitcoin_cash, litecoin, xrp, xlm
 import json
 #________________________________LEDGER/ACCOUNT________________________________________________
-
-# body_params = {"currency": "BTC", "accountCode":"04_ACC_02", 'customer':{'externalId': '3dss4'}}
+# API_KEY=856afd45-d5d7-4df9-92dd-1e2ca142fd72
+# API_KEY=b5887b38-9f0d-48f5-a408-cc5308398b94
+# body_params = {"currency": "ETH", "accountCode":"04_ACC_02", 'customer':{'externalId': '3dss4'}}
 # if body_params['currency'] != json.loads(account.create_new_account(body_params))['currency']:
 #     print('Currency is not same!')
 # else:
@@ -445,7 +446,8 @@ import json
 
 
 # body_params = {
-# "xApiKey": "8234de3c-115e-4337-a012-960962cd2b6d"
+# "xApiKey": "856afd45-d5d7-4df9-92dd-1e2ca142fd72"
+    # "xApiKey": "b5887b38-9f0d-48f5-a408-cc5308398b94"
 # }
 # print(ethereum.web3_http_driver(body_params))
 
@@ -454,7 +456,7 @@ import json
 # path_params = {'hash': '0x3f7268804257cfb4dbf8c5051ada42709a45bd04f713883dc1ed114ecd3f85d2'}
 # print(ethereum.get_block_by_hash(path_params)) 
 
-# path_params = {'address': '0x0c0db1eeb7c420ebebf34c50c80da0c6361688d7'}
+# path_params = {'address': '0x5C010bd42496DB0e30650F40947B707865146711'}
 # print(ethereum.get_ethereum_account_balance(path_params))
 
 # path_params = {'address': '0x811dfbff13adfbc3cf653dcc373c03616d3471c9'}

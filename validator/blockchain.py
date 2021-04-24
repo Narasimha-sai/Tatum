@@ -399,7 +399,7 @@ def invoke_smart_contract_method(body_params):
     body_schema = {
             "contractAddress": {"required": True, "type" : "string", "minlength": 42, "maxlength": 42},
             "methodName": {"required": True, "type" : "string", "minlength": 1, "maxlength": 500},
-            "methodABI": {"required": True, "type" : "list" , "schema" : {"type" : "dict"}},
+            "methodABI": {"required": True, "type" : "dict" },
             "params": {"required": True, "type" : "dict"},
             "fromPrivateKey": {"type" : "string", "minlength": 66, "maxlength": 66},
             "signatureId": {"type" : "string", "minlength": 36, "maxlength": 36},
