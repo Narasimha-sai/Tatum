@@ -244,24 +244,25 @@ def send_ethereum_erc20_from_account_to_account(body_params):
    
 
 
-
 def invoke_smart_contract_method(body_params):
     if blockchain_validator.invoke_smart_contract_method(body_params):
         contract = web3.eth.contract(abi=[body_params['methodABI']],address=web3.toChecksumAddress(body_params['contractAddress']))
         if(len(body_params['params'])==0):
-          if('name'== body_params['methodName']):
-            return({'data': contract.functions.name().call()})
-          if('symbol' == body_params['methodName']):
-            return({'data':contract.functions.symbol().call()})
-          if('decimals' == body_params['methodName']):
-            return({'data':contract.functions.decimals().call()})
-          if('totalSupply' == body_params['methodName']):
-            return({'data':contract.functions.totalSupply().call()})
+            if('name'== body_params['methodName']):
+                return({'data': contract.functions.name().call()})
+            if('symbol' == body_params['methodName']):
+                return({'data':contract.functions.symbol().call()})
+            if('decimals' == body_params['methodName']):
+                return({'data':contract.functions.decimals().call()})
+            if('totalSupply' == body_params['methodName']):
+                return({'data':contract.functions.totalSupply().call()})
         else:
-          if('balanceOf' == body_params['methodName']):
-            return({'data':contract.functions.balanceOf(body_params['params']['address']).call()})
+            if('balanceOf' == body_params['methodName']):
+                return({'data':contract.functions.balanceOf(body_params['params']['address']).call()})
+            
 
-def deploy_ethereum_erc20_smart_contract(body_params): 
+
+def deploy_ethereum_erc20_smart_contract(body_params):
     if blockchain_validator.deploy_ethereum_erc20_smart_contract(body_params):
         abi = erc20()['abi']
         bytecode = erc20()['bytecode']
@@ -392,7 +393,13 @@ def broadcast_signed_ethereum_transaction(body_params):
 def estimate_ethereum_transaction_fees(body_params):
     if blockchain_validator.estimate_ethereum_transaction_fees(body_params):
         gaslimit = web3.eth.estimateGas({"from":body_params["from"],"to":body_params["to"],"amount":body_params["amount"]})
-        gasprice = web3.eth.gasPrice
+        con = http.client.HTTPSConnection("etherchain.org")
+        con.request("GET","/api/gasPriceOracle")
+        res = con.getresponse()
+        data = res.read()
+        data = data.decode("utf-8")
+        dat = json.loads(data)
+        gasprice = Web3.toWei(dat['fastest'],"gwei")
         return({"gasLimit":gaslimit,"gasPrice":gasprice})
 
 def transfer_ethereum_erc20(body_params):
